@@ -1,16 +1,16 @@
 #this file consists of code for instances and sg
 provider "aws" {
-region = "us-east-1"
-access_key = "AKIARBQY7LVDFBVJQBDB"
-secret_key = "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"
+region = "ap-south-1"
+access_key = "AKIARWNLKDGL4PBAFEHI"
+secret_key = "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"
 }
 
 resource "aws_instance" "one" {
-  ami             = "ami-03c7d01cf4dedc891"
-  instance_type   = "t2.micro"
-  key_name        = "terraformnewkpp"
+  ami             = "ami-006935d9a6773e4ec"
+  instance_type   = "t2.medium"
+  key_name        = "terraform"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "us-east-1a"
+  availability_zone = "ap-south-1"
   user_data       = <<EOF
 #!/bin/bash
 sudo -i
@@ -25,11 +25,11 @@ EOF
 }
 
 resource "aws_instance" "two" {
-  ami             = "ami-03c7d01cf4dedc891"
-  instance_type   = "t2.micro"
-  key_name        = "terraformnewkpp"
+  ami             = "ami-006935d9a6773e4ec"
+  instance_type   = "t2.medium"
+  key_name        = "terraform"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "us-east-1b"
+  availability_zone = "ap-south-1"
   user_data       = <<EOF
 #!/bin/bash
 sudo -i
@@ -44,22 +44,22 @@ EOF
 }
 
 resource "aws_instance" "three" {
-  ami             = "ami-03c7d01cf4dedc891"
-  instance_type   = "t2.micro"
-  key_name        = "terraformnewkpp"
+  ami             = "ami-006935d9a6773e4ec"
+  instance_type   = "t2.medium"
+  key_name        = "terraform"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "us-east-1a"
+  availability_zone = "ap-south-1"
   tags = {
     Name = "app-server-1"
   }
 }
 
 resource "aws_instance" "four" {
-  ami             = "ami-03c7d01cf4dedc891"
-  instance_type   = "t2.micro"
-  key_name        = "terraformnewkpp"
+  ami             = "ami-006935d9a6773e4ec"
+  instance_type   = "t2.medium"
+  key_name        = "terraform"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "us-east-1b"
+  availability_zone = "ap-south-1"
   tags = {
     Name = "app-server-2"
   }
@@ -90,7 +90,7 @@ resource "aws_security_group" "five" {
 }
 
 resource "aws_s3_bucket" "six" {
-  bucket = "rahamshaikterra77889900prodenvgshj"
+  bucket = "hemanth123"
 }
 
 resource "aws_iam_user" "seven" {
@@ -105,7 +105,7 @@ default = ["user1", "user2", "user3", "user4"]
 }
 
 resource "aws_ebs_volume" "eight" {
- availability_zone = "us-east-1a"
+ availability_zone = "ap-south-1"
   size = 40
   tags = {
     Name = "ebs-001"
